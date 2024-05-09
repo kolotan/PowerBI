@@ -1,0 +1,110 @@
+Data visualization is the process of using visual elements like charts, graphs or maps to represent data
+
+Below are the list of visualization elements use for this project with description on use case.
+
+1) Donut Chart - Display the total % un-use balance amount of each department over a period of 4 years.
+   Setting Visual
+     Legend = [Department]
+     Value = [Sum of Balance]
+   Setting Format
+     Data Labels = {Category, percentage of total}
+   
+   Can apply on Filters panel, like
+   a) top 5 departments using Filter Type = Top N, Top=5, By Value = [Sum of Balance]
+
+
+2) Card chart - Display a single consolidated balance amount across all departments over a period of 4 years.
+   Setting Visual
+     Fields = [Sum of Balance]
+
+3) Card chart - Display a single department name having  the top most customer
+   Setting Visual
+     Fields = [First Department]
+
+4) Stacked bar chart - Display top Account officers across all departments handling most customers
+    Setting Visual
+      Y-axis = [OfficerName]
+      X-axis = [Count of CustID], Count(Distinct)
+     
+5) Cluster column Chart - display unuse balance amount by each year
+    Setting Visual
+      X-axis = [Date] hierarchy
+      y-axis = [Sum of balance]
+   Setting Add further analyses to your visual
+      Trend line set to on
+
+4) Slicer - allow user to select which particular year for display affecting all charts within a visual page.
+    Setting Visual
+      Field = [Year]
+    For better visualisation, Setting Visual
+      Legend = [Year]
+
+5) Treemap chart, is used to show the parent and child data distribution. This chart
+display the actual spending by each department and drill down to subdepartments.
+    Setting Visual
+      Category = [Department],[Subdepartment]
+      Values = [Sum of Actuals]
+
+
+6) ArcGIS Maps for Power BI - display location of customers using global map and their size of the buble indicating the volumne of customers in that country.
+   To turn on ArcGID Maps, go to File->Options and settings->Options.
+                           go to Global->Security-> checked on 'ArcGIS for Power BI'. restart PowerBI desktop
+   Setting Visual
+      Location = [Domicile]
+      Size = [Count of CustID], Count(Distinct)
+      Colour = [Department]
+
+7) Matrix Chart - To summarize data in a dynamic tabular format. This chart shows by department and drill down to subdepartment for their actual spending amount vs budget amount.
+    Setting Visual
+      Rows = [Department],[Subdepartment]
+      Values = [Sum of Actuals], [Sum of Budget]
+  To display alternate row background color, Setting Format-> Visual
+      Values -> Alternate background color
+  To display bar on value, on Setting Visual->Values->[Sum of Actuals],{Conditional formatting}->{Data bars}
+   
+8) Clustered column chart - This chart shows the sum of previous year un-use balance amount.
+    Setting Visual
+      X-axis = [Year]
+      y-axis = [PYActual]
+
+9) Line chart - This chart show the unuse balance amount by each year
+    Setting Visual
+      X-axis = [Date] hierarchy
+      y-axis = [Sum of Actual]
+   Setting Add further analyses to your visual
+      Trend line set to on
+      Average line - add line
+  
+10) Line and stacked column chart - This chart display the unuse balance amount over each year using bar column, and %Growth using line.
+    Setting Visual
+      X-axis = [Date] hierarchy
+      Column y-axis = [Sum of Balance]
+      Line y-axis = [%Growth]
+   Setting Format-Visual
+     Data Labels set to on
+
+11) KPI chart is a visual cue that communicates the amount of progress made toward a measurable goal. This chart shows PYActual for 2019 vs   
+    Setting Visual
+      Value = [Sum of Actuals]
+      Trend axis = [Year]
+      Target = [PYActual]
+   whereby the [Sum of Actuals] for year 2020 is being display as $4.03M
+    and [PYActual] is display as Goal:3.34M (+20.65%)
+
+12) Gauge chart is a circular arc to show how a single value progresses toward a goal or a Key Performance Indicator (KPI).  
+    Setting Visual
+      Value = [Sum of Actuals]
+      Target Value = [PYActual]
+    To use the 100% arc of the gauge display
+      Setting Visual
+      Maximum Value = [Sum of Actuals] 
+
+13) Q&A Chart allow you to explore your data in your own words.
+e.g  data's Actuals sorted by data's date 
+with the generated chart, you may click on the icon "Turn this Q&A result into a standard visual"
+
+14) The key influencers visual also allows you to understand the relative importance of the different significant factors that it finds.
+    Setting Visual
+      Analyze = [Revenue]
+      Explain by = [Department], [Actuals]
+
